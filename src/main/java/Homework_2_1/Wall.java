@@ -1,9 +1,25 @@
 package Homework_2_1;
 
-public class Wall {
-    private final int wigth;
+public class Wall implements Obstacle  {
+    private final String type = "Wall";
+    private final int height;
 
-    public Wall(int wigth) {
-        this.wigth = wigth;
+    public String getType() {
+        return type;
+    }
+
+    public Wall(int height) {
+        this.height = height;
+    }
+
+    @Override
+    public int size() {
+        return height;
+
+    }
+
+    @Override
+    public String type() {
+        return type;
     }
 }
