@@ -15,7 +15,7 @@ public class Robot implements Participator{
 
     @Override
     public void run(int run) {
-        if (run >= maxRun){
+        if (run <= maxRun){
             System.out.println(type + " " + name +" пробежал " + run + " Едениц");
             status = true;
         }else {
@@ -26,7 +26,7 @@ public class Robot implements Participator{
 
     @Override
     public void jump(int jump) {
-        if (jump >= maxJump){
+        if (jump <= maxJump){
             System.out.println(type + " " + name +" перепрыгнул стену высотой  " + jump + " Едениц");
             status = true;
         }else {
@@ -40,7 +40,7 @@ public class Robot implements Participator{
     }
     @Override
     public String infoAbility() {
-        return "Максимальное расстояние бега " + maxRun + "\n" + "Максимальная высота прыга" + maxJump;
+        return "Максимальное расстояние бега " + maxRun + "\n" + "Максимальная высота прыга " + maxJump;
     }
 
     @Override

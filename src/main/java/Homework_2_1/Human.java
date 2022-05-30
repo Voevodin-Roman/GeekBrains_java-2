@@ -43,7 +43,7 @@ public class Human implements Participator{
 
     @Override
     public String infoAbility() {
-        return "Максимальное расстояние бега " + maxRun + "\n" + "Максимальная высота прыга" + maxJump;
+        return "Максимальное расстояние бега " + maxRun + "\n" + "Максимальная высота прыга " + maxJump;
     }
 
     @Override
