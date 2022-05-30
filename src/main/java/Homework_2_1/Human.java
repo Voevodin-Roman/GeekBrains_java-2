@@ -12,6 +12,8 @@ public class Human implements Participator{
         this.name = name;
     }
 
+
+
     @Override
     public void run(int run) {
         if (run <= maxRun){
@@ -37,5 +39,15 @@ public class Human implements Participator{
     @Override
     public boolean status() {
         return status;
+    }
+
+    @Override
+    public String infoAbility() {
+        return "Максимальное расстояние бега " + maxRun + "\n" + "Максимальная высота прыга" + maxJump;
+    }
+
+    @Override
+    public String infoName() {
+        return type + " " + name + "\n";
     }
 }
