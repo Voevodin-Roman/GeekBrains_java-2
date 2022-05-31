@@ -9,7 +9,7 @@ public class Test {
                 {"1", "4", "44", "55"}
         };
         try {
-            System.out.println("Общая сумма элементов равна " + new MassArray(stringArray).array());
+            System.out.println("Общая сумма элементов равна " + new ProcessingMassArray(stringArray).arrayCheck());
         }catch (MyArrayDataException e){
             System.out.println(e.getText());
             e.printStackTrace();

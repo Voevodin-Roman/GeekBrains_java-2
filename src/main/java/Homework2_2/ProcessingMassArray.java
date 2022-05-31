@@ -2,14 +2,14 @@ package Homework2_2;
 
 import static java.lang.Integer.valueOf;
 
-public class MassArray {
+public class ProcessingMassArray {
     private final String[][] strings;
 
-    public MassArray(String[][] strings) {
+    public ProcessingMassArray(String[][] strings) {
         this.strings = strings;
     }
 
-    public int array() throws MyArraySizeException, MyArrayDataException {
+    public int arrayCheck() throws MyArraySizeException, MyArrayDataException {
         int a = 0;
         // проверка на размер массива
         if (strings.length != 4) {
