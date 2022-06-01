@@ -27,6 +27,8 @@ public class Main {
         });
         System.out.println("Список уникальных значений массива: " + arrayList);
 
+        //Добавление и поиск номеров в телефонной книге");
+
         PhoneBook phoneBook = new PhoneBook();
         phoneBook.add("Иванов", "+11111");
         phoneBook.add("Петров", "+22222");
@@ -34,6 +36,7 @@ public class Main {
         phoneBook.add("Алексеев", "+44444");
         phoneBook.add("Иванов", "+55555");
         phoneBook.add("Иванов", "+66666");
+
         phoneBook.get("Иванов");
     }
 }
