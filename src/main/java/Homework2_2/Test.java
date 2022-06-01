@@ -12,17 +12,15 @@ public class Test {
     public static void main(String[] args) {
         String[][] stringArray = new String[][] {
                 {"44", "22", "11", "5"},
-                {"55", "66", "77", "88"},
+                {"55", "66", "33", "44"},
                 {"82", "24", "44", "44"},
                 {"1", "4", "44", "55"}
         };
         try {
             System.out.println("Общая сумма элементов равна " + new ProcessingMassArray(stringArray).arrayCheck());
         }catch (MyArrayDataException e){
-            System.out.println(e.getText());
             e.printStackTrace();
         }catch (MyArraySizeException e) {
-            System.out.println(e.getText());
             e.printStackTrace();
         }
 
