@@ -1,10 +1,9 @@
 package Homework2_3;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Objects;
 
-public class PhoneBook {
+public class ProcessingPhoneBook {
     private final HashMap <String, String> hashMap = new HashMap<>();
     public void add(String surname, String phone){
             if (hashMap.containsKey(phone)){
