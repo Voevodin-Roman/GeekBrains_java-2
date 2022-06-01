@@ -6,6 +6,7 @@ import java.util.Objects;
 public class ProcessingPhoneBook {
     private final HashMap <String, String> hashMap = new HashMap<>();
     public void add(String surname, String phone) throws MyPhoneAvailabilityCheckException {
+        //Добавляем обработку исключения. Просто для закрепления навыка.
             if (hashMap.containsKey(phone)){
                 throw new MyPhoneAvailabilityCheckException("Ошибка добавления номера — " + surname + ": " + phone + " :такой номер есть в телефонном справочнике!");
             }else{

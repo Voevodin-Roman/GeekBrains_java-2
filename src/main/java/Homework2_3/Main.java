@@ -17,6 +17,7 @@ public class Main {
         //Добавление и поиск номеров в телефонной книге");
 
         ProcessingPhoneBook processingPhoneBook = new ProcessingPhoneBook();
+        //Добавляем обработку исключения. Просто для закрепления навыка.
         try {
             processingPhoneBook.add("Иванов", "+11111");
             processingPhoneBook.add("Петров", "+22222");
