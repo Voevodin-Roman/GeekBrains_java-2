@@ -13,7 +13,7 @@ public class ProcessingWordArray {
             // метод containsKey возвращает true если значение ключа уже существует (return getNode(key) != null;).
             //Т.е. если мы помещаем значение ячейки массива в качестве ключа, а потом это слово еще раз встречается в массиве, то метод вернёт true.
             if (hashMap.containsKey(arrayString)) {
-                // Если слово уже есть в коллекции, мы прибавляем единицу к значению, на которое указывает этот ключ arrayStrings.array()[i]
+                // Если слово уже есть в коллекции, мы прибавляем единицу к значению, на которое указывает этот ключ arrayStrings
                 hashMap.put(arrayString, hashMap.get(arrayString) + 1);
             } else {
                 hashMap.put(arrayString, 1);
