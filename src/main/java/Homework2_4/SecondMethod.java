@@ -11,11 +11,9 @@ public class SecondMethod {
         System.arraycopy(arr, 0, tr1, 0, h);
         System.arraycopy(arr, h, tr2, 0, h);
         Thread thread1 = new Thread(new Tr1());
-        thread1.start();
         Thread thread2 = new Thread(new Tr2());
+        thread1.start();
         thread2.start();
-
-
         float[] mergedArr = new float[h * 2];
         System.arraycopy(tr1, 0, mergedArr, 0, h);
         System.arraycopy(tr2, 0, mergedArr, h, h);
@@ -26,7 +24,8 @@ public class SecondMethod {
         @Override
         public void run() {
             for (int i = 0; i < tr1.length; i++) {
-                arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+                arr[i] = (float) (arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+            }
         }
 
     }
