@@ -7,6 +7,8 @@ public class SecondMethod {
         float[] tr2 = new float[h];
         System.arraycopy(arr, 0, tr1, 0, h);
         System.arraycopy(arr, h, tr2, 0, h);
+        Thread thread1 = new Thread(new Tr1());
+        thread1.start();
 
 
         float[] mergedArr = new float[h * 2];
@@ -17,10 +19,9 @@ public class SecondMethod {
 
     class Tr1 implements Runnable{
         @Override
-        public void run() {
-            for (int i = 0; i < arr.length; i++) {
+        public void run(float[] arr) {
+            for (int i = 0; i < tr1.length; i++) {
                 arr[i] = (float)(arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
-            }
         }
 
     }
