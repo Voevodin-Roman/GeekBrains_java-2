@@ -2,7 +2,7 @@ package Homework2_4;
 
 public class AllCoresMethod {
     //Метод обрабатывает входящий массив, разделяет его на 2 части и просчитывает двумя потоками. Потом склеивает части назад.
-    public void method(float[] arr) {
+    public void method(float[] arr) throws InterruptedException {
         final int cores = Runtime.getRuntime ().availableProcessors();
         final int c = arr.length / cores;
         final int residue = arr.length% Runtime.getRuntime ().availableProcessors();
@@ -38,6 +38,9 @@ public class AllCoresMethod {
             trArr[i] = new TrArr(trArray[i]);
             threads[i] = new Thread(trArr[i]);
             threads[i].start();
+        }
+        for (int i = 0; i < thread; i++) {
+            threads[i].join();
         }
 
         float[] mergedArr = new float[arr.length];

@@ -1,8 +1,8 @@
 package Homework2_4;
 
 public class ProcessingFloatArray {
-    public static void main(String[] args) {
-        final int size = 2545844;
+    public static void main(String[] args) throws InterruptedException {
+        final int size = 99748364;
         float[] arr = new float[size];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = 1;

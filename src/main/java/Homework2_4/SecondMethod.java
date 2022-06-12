@@ -2,7 +2,7 @@ package Homework2_4;
 
 public class SecondMethod {
     //Метод обрабатывает входящий массив, разделяет его на 2 части и просчитывает двумя потоками. Потом склеивает части назад.
-    public void method(float[] arr) {
+    public void method(float[] arr) throws InterruptedException {
         final int h = arr.length / 2;
         long a = System.currentTimeMillis();
         float[] tr1 = new float[h];
@@ -15,7 +15,9 @@ public class SecondMethod {
         Thread thread2 = new Thread(trArr2);
         thread1.start();
         thread2.start();
-        float[] mergedArr = new float[h * 2];
+        thread1.join();
+        thread2.join();
+        float[] mergedArr = new float[arr.length];
         System.arraycopy(trArr1.getTr(), 0, mergedArr, 0, h);
         System.arraycopy(trArr2.getTr(), 0, mergedArr, h, h);
         System.out.println("Время обработки массива двумя потоками: " + (System.currentTimeMillis() - a));
