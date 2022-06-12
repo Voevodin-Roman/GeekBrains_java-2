@@ -2,7 +2,7 @@ package Homework2_4;
 
 public class ProcessingFloatArray {
     public static void main(String[] args) {
-        final int size = 254584742;
+        final int size = 2545844;
         float[] arr = new float[size];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = 1;
