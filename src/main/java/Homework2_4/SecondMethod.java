@@ -37,6 +37,7 @@ public class SecondMethod {
             for (int i = 0; i < tr.length; i++) {
                 tr[i] = (float) (tr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
             }
+
         }
     }
 

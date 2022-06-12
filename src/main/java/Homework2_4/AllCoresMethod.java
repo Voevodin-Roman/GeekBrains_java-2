@@ -34,13 +34,13 @@ public class AllCoresMethod {
 
         TrArr[] trArr = new TrArr[thread];
         Thread[] threads = new Thread[thread];
-        for (int i = 0; i < cores; i++) {
+        for (int i = 0; i < thread; i++) {
             trArr[i] = new TrArr(trArray[i]);
             threads[i] = new Thread(trArr[i]);
             threads[i].start();
         }
 
-        float[] mergedArr = new float[cores * c + residue];
+        float[] mergedArr = new float[arr.length];
         int endАrray = 0;
         for (int i = 0; i < thread; i++) {
             System.arraycopy(trArr[i].getTr(), 0, mergedArr, endАrray, trArr[i].getTr().length);
@@ -64,7 +64,9 @@ public class AllCoresMethod {
         public void run() {
             for (int i = 0; i < tr.length; i++) {
                 tr[i] = (float) (tr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
+
             }
+
         }
     }
 }
