@@ -2,7 +2,8 @@ package Homework2_4;
 
 public class SecondMethod {
     //Метод обрабатывает входящий массив, разделяет его на 2 части и просчитывает двумя потоками. Потом склеивает части назад.
-    public void method(float[] arr, int h) {
+    public void method(float[] arr) {
+        final int h = arr.length / 2;
         long a = System.currentTimeMillis();
         float[] tr1 = new float[h];
         float[] tr2 = new float[h];
