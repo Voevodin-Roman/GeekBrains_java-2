@@ -41,8 +41,8 @@ public class AllCoresMethod {
         }
 
         float[] mergedArr = new float[cores * c + residue];
+        int endАrray = 0;
         for (int i = 0; i < cores; i++) {
-            int endАrray = 0;
             System.arraycopy(trArr[i].getTr(), 0, mergedArr, endАrray, trArr[i].getTr().length);
             endАrray = endАrray + trArr[i].getTr().length;
         }
