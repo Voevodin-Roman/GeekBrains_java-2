@@ -1,13 +1,11 @@
 package Homework2_4;
 
 public class SecondMethod {
-    float[] tr1;
-    float[] tr2;
     //Метод обрабатывает входящий массив, разделяет его на 2 части и просчитывает двумя потоками. Потом склеивает части назад.
     public void method(float[] arr, int h) {
         long a = System.currentTimeMillis();
-        tr1 = new float[h];
-        tr2 = new float[h];
+        float[] tr1 = new float[h];
+        float[] tr2 = new float[h];
         System.arraycopy(arr, 0, tr1, 0, h);
         System.arraycopy(arr, h, tr2, 0, h);
         TrArr trArr1 = new TrArr(tr1);
@@ -35,7 +33,7 @@ public class SecondMethod {
 
         @Override
         public void run() {
-            for (int i = 0; i < tr1.length; i++) {
+            for (int i = 0; i < tr.length; i++) {
                 tr[i] = (float) (tr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
             }
         }
