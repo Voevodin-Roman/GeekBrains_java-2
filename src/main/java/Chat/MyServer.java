@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.TreeMap;
 //1. Написать консольный вариант клиент\серверного приложения, в котором пользователь может писать сообщения,
 // как на клиентской стороне, так и на серверной. Т.е. если на клиентской стороне написать "Привет", нажать Enter
 // то сообщение должно передаться на сервер и там отпечататься в консоли. Если сделать то же самое на серверной стороне,
@@ -28,8 +29,8 @@ public class MyServer {
             System.out.println("Клиент подключился");
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
-            Thread serverThread;
-            serverThread = new Thread(() -> {
+            Thread serverRead;
+            serverRead = new Thread(() -> {
                 while (true){
                     String message = null;
                     try {
@@ -49,11 +50,26 @@ public class MyServer {
                     System.out.println("Сообщение от клиента: " + message);
                 }
             });
-            serverThread.start();
-            while (serverThread.isAlive()) {
-                Scanner scanner = new Scanner(System.in);
-                out.writeUTF(scanner.nextLine());
+            serverRead.start();
+            Thread serverWrite;
+            serverWrite = new Thread(() -> {
+                while (true) {
+                    Scanner scanner = new Scanner(System.in);
+                    try {
+                        out.writeUTF(scanner.nextLine());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            serverWrite.start();
+            while (serverRead.isAlive()){
+                //Использовать метод stop() не рекомендуется, но в данном случае это не влияет негативно.
+                // И я не придумал как использовать метод interrupt(). Там висит scanner и ждет ввода.
+                serverWrite.stop();
             }
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
