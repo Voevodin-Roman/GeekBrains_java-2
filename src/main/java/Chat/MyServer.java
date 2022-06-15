@@ -28,8 +28,7 @@ public class MyServer {
             System.out.println("Клиент подключился");
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
-            Thread serverRead;
-            serverRead = new Thread(() -> {
+            new Thread(() -> {
                 while (true){
                     String message = null;
                     try {
@@ -48,8 +47,7 @@ public class MyServer {
                     }
                     System.out.println("Сообщение от клиента: " + message);
                 }
-            });
-            serverRead.start();
+            }).start();
             Thread serverWrite;
             serverWrite = new Thread(() -> {
                 while (true) {
