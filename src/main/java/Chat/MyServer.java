@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
-import java.util.TreeMap;
 //1. Написать консольный вариант клиент\серверного приложения, в котором пользователь может писать сообщения,
 // как на клиентской стороне, так и на серверной. Т.е. если на клиентской стороне написать "Привет", нажать Enter
 // то сообщение должно передаться на сервер и там отпечататься в консоли. Если сделать то же самое на серверной стороне,
@@ -20,9 +19,9 @@ public class MyServer {
     Socket socket;
 
     public static void main(String[] args) {
-        new MyServer().chatLogic();
+        new MyServer().server();
     }
-    public void chatLogic(){
+    public void server(){
         try (ServerSocket serverSocket = new  ServerSocket(38989)){
             System.out.println("Ждем подключения клиента");
             socket = serverSocket.accept();
