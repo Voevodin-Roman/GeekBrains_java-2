@@ -61,13 +61,8 @@ public class MyServer {
                     }
                 }
             });
+            serverWrite.setDaemon(true);
             serverWrite.start();
-            while (serverRead.isAlive()){
-                //Использовать метод stop() не рекомендуется, но в данном случае это не влияет негативно.
-                // И я не придумал как использовать метод interrupt(). Там висит scanner и ждет ввода.
-                serverWrite.stop();
-            }
-
 
         } catch (IOException e) {
             e.printStackTrace();
