@@ -5,24 +5,27 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MyChat{
     private Socket socket;
     private DataInputStream in;
     private DataOutputStream out;
 
-
     public static void main(String[] args) {
         new MyChat().start();
     }
     public void start(){
-        boolean status = true;
         try {
             openConnection();
             Scanner scanner = new Scanner(System.in);
-            while (status){
-                sendMessage(scanner.nextLine());
+            while (true){
+                String scannerText = scanner.nextLine();
+                if(scannerText.equals("/end")){
+                    sendMessage(scannerText);
+                    break;
+                }else {
+                    sendMessage(scannerText);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -46,6 +49,7 @@ public class MyChat{
                 while (true){
                     final String message = in.readUTF();
                     if ("/end".equalsIgnoreCase(message)){
+                        System.out.println("Сообщение от сервера:  " + "Сервер завершил работу");
                         break;
                     }
                     System.out.println("Сообщение от сервера:  " + message);
@@ -56,7 +60,6 @@ public class MyChat{
                 closeConnection();
             }
         }).start();
-
     }
 
     private void closeConnection() {
