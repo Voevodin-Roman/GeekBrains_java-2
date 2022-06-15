@@ -38,6 +38,7 @@ public class MyServer {
                     }
                     if ("/end".equalsIgnoreCase(message)){
                         try {
+                            out.writeUTF("Сервер завершил работу");
                             out.writeUTF("/end");
                         } catch (IOException e) {
                             e.printStackTrace();

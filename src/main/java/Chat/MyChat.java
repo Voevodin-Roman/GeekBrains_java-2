@@ -49,7 +49,7 @@ public class MyChat{
                 while (true){
                     final String message = in.readUTF();
                     if ("/end".equalsIgnoreCase(message)){
-                        System.out.println("Сообщение от сервера:  " + "Сервер завершил работу");
+                        System.out.println("Сообщение от сервера:  " + message);
                         break;
                     }
                     System.out.println("Сообщение от сервера:  " + message);
